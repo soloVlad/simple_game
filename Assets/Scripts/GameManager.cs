@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject[] animalPrefabs;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI gameOverText;
     private int score;
     private float spawnRangeX = 20f;
     private float spawnPosZ = 20f;
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);
         score = 0;
         UpdateScore(0);
+        
+        gameOverText.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
