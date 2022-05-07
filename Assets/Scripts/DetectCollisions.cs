@@ -21,9 +21,12 @@ public class DetectCollisions : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
-        Destroy(other.gameObject);
-        int targetWorth = other.gameObject.GetComponent<Target>().worth;
-        gameManager.UpdateScore(targetWorth);
+        if (gameManager.isGameActive)
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+            int targetWorth = other.gameObject.GetComponent<Target>().worth;
+            gameManager.UpdateScore(targetWorth);
+        }
     }
 }

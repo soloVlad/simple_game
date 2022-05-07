@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] animalPrefabs;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
+    public bool isGameActive;
     private int score;
     private float spawnRangeX = 20f;
     private float spawnPosZ = 20f;
@@ -17,8 +18,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnTarget());
+        isGameActive = true;
         score = 0;
+        
+        StartCoroutine(SpawnTarget());
         UpdateScore(0);
     }
 
@@ -38,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnTarget()
     {
-        while (true)
+        while (isGameActive)
         {
             yield return new WaitForSeconds(spawnInterval);
             SpawnRandomAnimal();
@@ -54,5 +57,6 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverText.gameObject.SetActive(true);
+        isGameActive = false;
     }
 }
