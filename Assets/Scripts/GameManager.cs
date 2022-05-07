@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);
+        StartCoroutine(SpawnTarget());
         score = 0;
         UpdateScore(0);
     }
@@ -36,6 +36,15 @@ public class GameManager : MonoBehaviour
         Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
     }
 
+    IEnumerator SpawnTarget()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(spawnInterval);
+            SpawnRandomAnimal();
+        }
+    }
+    
     public void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
