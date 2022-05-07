@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public GameObject[] animalPrefabs;
     private float spawnRangeX = 20f;
