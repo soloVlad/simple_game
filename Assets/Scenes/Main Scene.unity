@@ -1158,7 +1158,7 @@ GameObject:
   - component: {fileID: 2067272276}
   - component: {fileID: 2067272275}
   m_Layer: 0
-  m_Name: SpawnManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1180,6 +1180,7 @@ MonoBehaviour:
   - {fileID: 9023566457097415356, guid: faf5c4a7ab6edb58793beedf2cf748d6, type: 3}
   - {fileID: 5605887553061318985, guid: 9a159d26ca6600f64a632991d9a29196, type: 3}
   - {fileID: 3556982625687499635, guid: 121b9e311f1e3fed2a047481f00006c2, type: 3}
+  scoreText: {fileID: 1650002712}
 --- !u!4 &2067272276
 Transform:
   m_ObjectHideFlags: 0

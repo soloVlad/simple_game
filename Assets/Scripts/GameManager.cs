@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject[] animalPrefabs;
+    public TextMeshProUGUI scoreText;
+    private int score;
     private float spawnRangeX = 20f;
     private float spawnPosZ = 20f;
     private float startDelay = 2f;
@@ -14,6 +17,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);
+        score = 0;
+        UpdateScore(0);
     }
 
     // Update is called once per frame
@@ -28,5 +33,11 @@ public class GameManager : MonoBehaviour
         Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
             
         Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
+    }
+
+    private void UpdateScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
+        scoreText.text = "Score: " + score;
     }
 }
