@@ -12,20 +12,16 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public Button restartButton;
     public bool isGameActive;
+    public GameObject titleScreen;
     private int score;
     private float spawnRangeX = 20f;
     private float spawnPosZ = 20f;
-    private float startDelay = 2f;
-    private float spawnInterval = 1.5f;
+    private float spawnInterval = 2f;
     
     // Start is called before the first frame update
     void Start()
     {
-        isGameActive = true;
-        score = 0;
         
-        StartCoroutine(SpawnTarget());
-        UpdateScore(0);
     }
 
     // Update is called once per frame
@@ -42,12 +38,15 @@ public class GameManager : MonoBehaviour
         Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
     }
 
-    IEnumerator SpawnTarget()
+    IEnumerator SpawnTarget(int amount)
     {
         while (isGameActive)
         {
             yield return new WaitForSeconds(spawnInterval);
-            SpawnRandomAnimal();
+            for (int i = 0; i < amount; i++)
+            {
+                SpawnRandomAnimal();
+            }
         }
     }
     
@@ -67,5 +66,34 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void StartGame(int difficulty)
+    {
+        int amountOfTargets = 1;
+        isGameActive = true;
+        score = 0;
+
+        switch (difficulty)
+        {
+            case 1:
+                spawnInterval = 1.8f;
+                amountOfTargets = 1;
+                break;
+            case 2:
+                spawnInterval = 1.6f;
+                amountOfTargets = 1;
+                break;
+            case 3:
+                spawnInterval = 1.7f;
+                amountOfTargets = 2;
+                break;
+        }
+
+        StartCoroutine(SpawnTarget(amountOfTargets));
+        UpdateScore(0);
+        
+        titleScreen.gameObject.SetActive(false);
+        scoreText.gameObject.SetActive(true);
     }
 }
