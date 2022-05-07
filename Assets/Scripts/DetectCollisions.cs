@@ -22,6 +22,7 @@ public class DetectCollisions : MonoBehaviour
     {
         Destroy(gameObject);
         Destroy(other.gameObject);
-        gameManager.UpdateScore(5);
+        int targetWorth = other.gameObject.GetComponent<Target>().worth;
+        gameManager.UpdateScore(targetWorth);
     }
 }
