@@ -1342,7 +1342,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -14.82}
-  m_SizeDelta: {x: 160, y: 45}
+  m_SizeDelta: {x: 240, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1742967287
 MonoBehaviour:
@@ -1387,7 +1387,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1742967288}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2067272275}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1742967288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1518,6 +1530,7 @@ MonoBehaviour:
   - {fileID: 3556982625687499635, guid: 121b9e311f1e3fed2a047481f00006c2, type: 3}
   scoreText: {fileID: 1650002712}
   gameOverText: {fileID: 526849735}
+  restartButton: {fileID: 1742967287}
   isGameActive: 0
 --- !u!4 &2067272276
 Transform:
