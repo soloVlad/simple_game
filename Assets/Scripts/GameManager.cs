@@ -14,14 +14,14 @@ public class GameManager : MonoBehaviour
     public bool isGameActive;
     public GameObject titleScreen;
     private int score;
-    private float spawnRangeX = 20f;
+    private float spawnRangeX = 16f;
     private float spawnPosZ = 20f;
     private float spawnInterval = 2f;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        isGameActive = false;
     }
 
     // Update is called once per frame

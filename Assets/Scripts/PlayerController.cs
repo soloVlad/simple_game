@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip shootSound;
     public float horizontalInput;
     public float speed = 10.0f;
-    public float xRange = 20f;
+    public float xRange = 17f;
 
     public GameObject projectilePrefab;
     
